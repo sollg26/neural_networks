@@ -7,7 +7,7 @@ def load_data(filename):
     with open(filename,"r") as file:
         header = file.readline() #seperate header
         for line in file:
-            formatted=line.strip().split() #seperate each line into its parts
+            formatted=line.strip().split(",") #seperate each line into its parts
             age.append(int(formatted[0]))
             hg.append(int(formatted[1]))
             cls.append(int(formatted[2]))
