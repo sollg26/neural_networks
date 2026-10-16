@@ -1,4 +1,4 @@
-import random
+import numpy as np
 
 def load_data(filename):
     age=[]
@@ -16,10 +16,10 @@ def load_data(filename):
 
 
 def perceptron(age, hg, cls):
-    random.seed(26)
-    w0=random.uniform(-1,1)
-    w_age=random.uniform(-1,1)
-    w_hg=random.uniform(-1,1)
+    np.random.seed(26)
+    w0=np.random.uniform(-1,1)
+    w_age=np.random.uniform(-1,1)
+    w_hg=np.random.uniform(-1,1)
     y=[] #convert the 1s and 0s to 1s and -1
     for i in range(len(cls)):
         if cls[i]==0:
@@ -28,7 +28,7 @@ def perceptron(age, hg, cls):
             y.append(1)
 
 
-    for step in range(1000000):
+    for step in range(10000000):
         mistakes=0 #counter to see when all points have been sorted correctly
         for i in range(len(age)):
             output = w0 + w_age*age[i] + w_hg*hg[i]
@@ -43,6 +43,7 @@ def perceptron(age, hg, cls):
 
 age, hg, cls=load_data("stroke_separable.csv")
 w0, w_age, w_hg=perceptron(age, hg, cls)
+#print(w0, w_age, w_hg)
 
 
 
