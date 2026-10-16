@@ -13,7 +13,7 @@ def load_data(filename):
             cls.append(int(formatted[2]))
     return age, hg, cls
 
-#print(load_data("stroke_separable.csv"))
+
 
 def perceptron(age, hg, cls):
     random.seed(26)
@@ -28,7 +28,7 @@ def perceptron(age, hg, cls):
             y.append(1)
 
 
-    for step in range(10000000):
+    for step in range(1000000):
         mistakes=0 #counter to see when all points have been sorted correctly
         for i in range(len(age)):
             output = w0 + w_age*age[i] + w_hg*hg[i]
@@ -43,7 +43,7 @@ def perceptron(age, hg, cls):
 
 age, hg, cls=load_data("stroke_separable.csv")
 w0, w_age, w_hg=perceptron(age, hg, cls)
-print(f'weights:{w0, w_age, w_hg}')
+
 
 
 
